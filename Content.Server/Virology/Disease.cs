@@ -1,11 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Content.Server.Atmos.Reactions;
-using Content.Shared.Atmos;
 using Robust.Shared.Serialization;
 
-namespace Content.Server.Diseases
+namespace Content.Server.Virology
 {
     [Serializable]
     [DataDefinition]
@@ -17,6 +15,18 @@ namespace Content.Server.Diseases
         [DataField("description")]
         public string Description;
 
-        private Sympthom Sympthoms[];
+        private Symptom[] Symptoms;
+
+        public readonly unsigned short Severity;
+
+        public readonly unsigned short Stage;
+
+        public readonly unsigned short Resistance;
+
+        public readonly unsigned short StageSpeed;
+
+        public readonly unsigned short Transmisson;
+
+        public readonly Spread Spread;
     }
 }
