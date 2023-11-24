@@ -215,4 +215,4 @@
   id: MobDisease
   abstract: true
   components:
-  - type: HumanInfectable
+  - type: Disease

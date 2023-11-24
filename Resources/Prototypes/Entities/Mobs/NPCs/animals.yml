@@ -1036,7 +1036,7 @@
   - type: InventorySlots
   - type: Cuffable
   - type: RotationVisuals
-  - type: HumanInfectable
+  - type: Disease
     defaultRotation: 90
     horizontalRotation: 90
   - type: Fixtures
