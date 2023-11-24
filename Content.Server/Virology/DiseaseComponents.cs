@@ -7,21 +7,25 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Server.Virology;
 
-[Serializable]
-[DataDefinition]
+[RegisterComponent]
 public sealed partial class DiseaseComponent : Component
 {
     [DataField]
-    public Diseases[] Diseases { get; set; } = new Diseases[0];
-
-    public override void Initialize()
+    public Disease[] Diseases { get; set; } = new Disease[0];
+    [DataField]
+    public Disease[] DisseasesImmunity { get; set; } = new Disease[0];
+    public DiseaseComponent(Disease disease)
     {
-        base.Initialize();
-
-        // Check for diseases and spread if not empty
-        if (Diseases.Any())
-        {
-            SpreadDisease();
-        }
+        Diseases.Append(disease);
     }
+    public DiseaseComponent()
+    {
+
+    }
+}
+
+[RegisterComponent]
+public sealed partial class HumanInfectableComponent : Component
+{
+    // Empty component to make sure that entity can infected and avoid mice infection
 }

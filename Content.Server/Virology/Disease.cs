@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.IO.Pipes;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Robust.Shared.Serialization;
@@ -7,7 +8,7 @@ namespace Content.Server.Virology
 {
     [Serializable]
     [DataDefinition]
-    public sealed partial class Diseases
+    public sealed partial class Disease
     {
         [DataField("name")]
         public string Name;
@@ -17,16 +18,35 @@ namespace Content.Server.Virology
 
         private Symptom[] Symptoms;
 
-        public readonly unsigned short Severity;
+        public readonly short Severity;
 
-        public readonly unsigned short Stage;
+        public readonly short Stage;
 
-        public readonly unsigned short Resistance;
+        public readonly short Resistance;
 
-        public readonly unsigned short StageSpeed;
+        public readonly short StageSpeed;
 
-        public readonly unsigned short Transmisson;
+        public readonly short Transmisson;
 
-        public readonly Spread Spread;
+        //public readonly Spread Spread;
+    }
+
+    [Serializable]
+    [DataDefinition]
+    public sealed partial class Symptom
+    {
+        [DataField("name")]
+        public string Name;
+
+        [DataField("description")]
+        public string Description;
+
+        public readonly short Severity;
+
+        public readonly short Resistance;
+
+        public readonly short StageSpeed;
+
+        public readonly short Transmission;
     }
 }

@@ -228,6 +228,7 @@
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
+  - MobDisease
   id: BaseMobSpeciesOrganic
   abstract: true
   components:

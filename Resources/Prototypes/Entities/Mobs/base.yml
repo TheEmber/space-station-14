@@ -208,3 +208,11 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -1
+
+# Used for mobs that can have diseases
+- type: entity
+  save: false
+  id: MobDisease
+  abstract: true
+  components:
+  - type: HumanInfectable
