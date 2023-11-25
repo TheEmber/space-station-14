@@ -1,3 +1,5 @@
+namespace Content.Server.Virology;
+
 [Serializable]
 [DataDefinition]
 public sealed partial class Symptom
