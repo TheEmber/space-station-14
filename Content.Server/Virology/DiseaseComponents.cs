@@ -35,9 +35,3 @@ public sealed partial class DiseaseComponent : Component
         DiseasesImmunity = DiseasesImmunity.Concat(newImmunities).ToArray();
     }
 }
-
-[RegisterComponent]
-public sealed partial class HumanInfectableComponent : Component
-{
-    // Empty component to make sure that entity can infected and avoid mice infection
-}

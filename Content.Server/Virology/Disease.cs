@@ -19,15 +19,15 @@ namespace Content.Server.Virology
 
         private Symptom[] Symptoms;
 
-        public readonly short Severity;
+        public short Severity;
 
-        public readonly short Stage;
+        public short Stage;
 
-        public readonly short Resistance;
+        public short Resistance;
 
-        public readonly short StageSpeed;
+        public short StageSpeed;
 
-        public readonly short Transmisson;
+        public short Transmission;
 
         //public readonly Spread Spread;
 
@@ -45,6 +45,7 @@ namespace Content.Server.Virology
                 RemoveRandomSympoms(1);
             }
             Symptoms.Append(newSymptom);
+            UpdateStats();
         }
         public void AddSymptom(Symptom[] newSymptoms)
         {
@@ -58,6 +59,7 @@ namespace Content.Server.Virology
             {
                 Symptoms = Symptoms.Concat(uniqueSymptoms).ToArray();
             }
+            UpdateStats();
         }
 
         private void RemoveRandomSympoms(int count)
@@ -87,6 +89,24 @@ namespace Content.Server.Virology
 
             // Replace old symptoms with new array
             Symptoms = newSymptoms;
+            // Update disease stats
+            UpdateStats();
+        }
+
+        // Updates all stats of disease
+        private void UpdateStats()
+        {
+            Severity = 0;
+            Resistance = 0;
+            StageSpeed = 0;
+            Transmission = 0;
+            foreach (var symptom in Symptoms)
+            {
+                Severity += symptom.Severity;
+                Resistance += symptom.Resistance;
+                StageSpeed += symptom.StageSpeed;
+                Transmission += symptom.Transmission;
+            }
         }
     }
 
@@ -107,5 +127,7 @@ namespace Content.Server.Virology
         public readonly short StageSpeed;
 
         public readonly short Transmission;
+
+        public readonly short Level;
     }
 }
