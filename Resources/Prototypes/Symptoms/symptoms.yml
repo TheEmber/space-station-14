@@ -1,0 +1,7 @@
+sypmtoms:
+  - id: Acute_Respiratory_Distress_Syndrome
+  - stealth: -2
+  - resistance: 0
+  - stageSpeed: -1
+  - transmission: -2
+  - level: 7
